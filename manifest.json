@@ -2,7 +2,7 @@
   "name": "Istanbul Family Adventure 2026",
   "short_name": "Istanbul 2026",
   "description": "Our Istanbul Family Adventure countdown",
-  "start_url": "./",
+  "start_url": "./?app=2026",
   "scope": "./",
   "display": "standalone",
   "background_color": "#071b3a",
