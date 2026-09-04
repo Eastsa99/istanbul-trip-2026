@@ -1,0 +1,941 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #06152e;
+  color: white;
+  overflow-x: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(255, 180, 80, .25), transparent 25%),
+    radial-gradient(circle at 20% 30%, rgba(0, 210, 255, .18), transparent 30%),
+    linear-gradient(
+      180deg,
+      #07152f 0%,
+      #06345a 30%,
+      #087b91 58%,
+      #f47745 82%,
+      #f9a65b 100%
+    );
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars,
+.stars-2 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .7;
+}
+
+.stars {
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, white 1px, transparent 1px);
+  background-size: 90px 90px, 140px 140px;
+  background-position: 10px 20px, 60px 70px;
+}
+
+.stars-2 {
+  background-image:
+    radial-gradient(circle, white 1.5px, transparent 1.5px);
+  background-size: 180px 180px;
+  background-position: 30px 40px;
+  opacity: .4;
+}
+
+
+/* =========================
+   MOON
+========================= */
+
+.moon {
+  position: absolute;
+  top: 65px;
+  right: 10%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #fff5d0;
+  box-shadow: 0 0 45px rgba(255, 240, 180, .7);
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #081a35;
+}
+
+
+/* =========================
+   PLANES
+========================= */
+
+.flying-plane {
+  position: absolute;
+  font-size: 30px;
+  z-index: 2;
+  opacity: .8;
+  animation: fly 18s linear infinite;
+}
+
+.plane-1 {
+  top: 18%;
+  left: -60px;
+}
+
+.plane-2 {
+  top: 42%;
+  left: -80px;
+  font-size: 22px;
+  animation-delay: 7s;
+}
+
+@keyframes fly {
+  from {
+    transform: translateX(-100px) translateY(0);
+  }
+
+  50% {
+    transform: translateX(50vw) translateY(-30px);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 150px)) translateY(-80px);
+  }
+}
+
+
+/* =========================
+   LANTERNS
+========================= */
+
+.lantern {
+  position: absolute;
+  font-size: 40px;
+  z-index: 3;
+  animation: swing 3s ease-in-out infinite;
+}
+
+.lantern-1 {
+  left: 4%;
+  top: 8%;
+}
+
+.lantern-2 {
+  right: 4%;
+  top: 15%;
+  animation-delay: 1s;
+}
+
+.lantern-3 {
+  left: 12%;
+  top: 55%;
+  animation-delay: 2s;
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  position: relative;
+  z-index: 5;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px 60px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  text-align: center;
+  padding: 50px 0 40px;
+}
+
+.hero-badge,
+.turkey-badge {
+  display: inline-block;
+  padding: 9px 18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .25);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(70px, 13vw, 150px);
+  line-height: .9;
+  margin: 20px 0 10px;
+  letter-spacing: 8px;
+  text-shadow:
+    0 8px 30px rgba(0, 0, 0, .3);
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 3vw, 24px);
+  opacity: .9;
+  margin-bottom: 35px;
+}
+
+
+/* =========================
+   ROUTE
+========================= */
+
+.route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.airport {
+  display: flex;
+  flex-direction: column;
+  min-width: 100px;
+}
+
+.airport strong {
+  font-size: 38px;
+  letter-spacing: 2px;
+}
+
+.airport span {
+  font-size: 12px;
+  opacity: .75;
+}
+
+.route-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+}
+
+.route-line div {
+  height: 2px;
+  flex: 1;
+  border-top: 2px dashed rgba(255, 255, 255, .6);
+}
+
+.route-line span {
+  font-size: 20px;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-card {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 28px;
+
+  background: rgba(5, 20, 45, .55);
+  border: 1px solid rgba(255, 255, 255, .22);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, .25),
+    inset 0 1px rgba(255, 255, 255, .15);
+
+  backdrop-filter: blur(18px);
+}
+
+.countdown-title {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+  opacity: .8;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.time-box {
+  min-width: 125px;
+}
+
+.time-box span {
+  display: block;
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-box small {
+  display: block;
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: .65;
+}
+
+.colon {
+  font-size: 45px;
+  font-weight: bold;
+  opacity: .5;
+  padding-bottom: 20px;
+}
+
+.countdown-message {
+  margin-top: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.departure {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.departure span {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: .7;
+}
+
+.departure strong {
+  font-size: 18px;
+}
+
+.departure small {
+  font-size: 11px;
+  opacity: .6;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  margin-top: 70px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-title > span {
+  font-size: 40px;
+}
+
+.section-title h2 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.section-title p {
+  opacity: .7;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+
+/* =========================
+   JOURNEY CARDS
+========================= */
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.journey-card {
+  padding: 25px;
+  border-radius: 24px;
+
+  background: rgba(4, 22, 48, .55);
+  border: 1px solid rgba(255, 255, 255, .16);
+
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .18);
+
+  transition: transform .3s ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-7px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.flight-number {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.duration {
+  font-size: 11px;
+  opacity: .6;
+}
+
+.flight-route {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.flight-route strong {
+  display: block;
+  font-size: 32px;
+}
+
+.flight-route small {
+  font-size: 11px;
+  opacity: .65;
+}
+
+.flight-arrow {
+  font-size: 11px;
+  opacity: .6;
+  white-space: nowrap;
+}
+
+.journey-card p {
+  margin-top: 25px;
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: .7;
+}
+
+.transit-card {
+  text-align: center;
+}
+
+.transit-icon {
+  font-size: 50px;
+  margin-bottom: 5px;
+}
+
+.transit-card h3 {
+  font-size: 25px;
+  letter-spacing: 3px;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, .10);
+  border: 1px solid rgba(255, 255, 255, .14);
+
+  backdrop-filter: blur(10px);
+}
+
+.stat-card span {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 25px;
+}
+
+.stat-card small {
+  display: block;
+  margin-top: 5px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  opacity: .6;
+}
+
+
+/* =========================
+   ISTANBUL SECTION
+========================= */
+
+.istanbul-section {
+  position: relative;
+  margin-top: 80px;
+  min-height: 600px;
+  overflow: hidden;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(9, 24, 57, .2),
+      rgba(4, 17, 40, .9)
+    );
+}
+
+.istanbul-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: rgba(255, 160, 70, .35);
+  filter: blur(100px);
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.istanbul-content {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 65px 20px 0;
+}
+
+.istanbul-content h2 {
+  margin-top: 20px;
+  font-size: clamp(45px, 8vw, 85px);
+  line-height: .9;
+  letter-spacing: 3px;
+}
+
+.istanbul-content h2 span {
+  font-size: .4em;
+  letter-spacing: 5px;
+}
+
+.istanbul-content p {
+  max-width: 550px;
+  margin: 25px auto;
+  line-height: 1.7;
+  opacity: .75;
+}
+
+.istanbul-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 35px;
+}
+
+.istanbul-highlights div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.istanbul-highlights span {
+  font-size: 30px;
+}
+
+.istanbul-highlights small {
+  font-size: 10px;
+  line-height: 1.3;
+  opacity: .7;
+}
+
+
+/* =========================
+   SKYLINE
+========================= */
+
+.skyline {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  height: 230px;
+  z-index: 3;
+}
+
+.building {
+  position: absolute;
+  bottom: 0;
+  background: #061426;
+}
+
+.b1 {
+  left: 3%;
+  width: 100px;
+  height: 110px;
+}
+
+.b2 {
+  left: 15%;
+  width: 140px;
+  height: 160px;
+}
+
+.b3 {
+  right: 8%;
+  width: 150px;
+  height: 130px;
+}
+
+
+/* Mosque */
+
+.mosque {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 230px;
+  height: 180px;
+  background: #061426;
+  border-radius: 100px 100px 0 0;
+}
+
+.dome {
+  position: absolute;
+  top: -50px;
+  left: 45px;
+  width: 140px;
+  height: 100px;
+  background: #061426;
+  border-radius: 100px 100px 0 0;
+}
+
+.minaret {
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 220px;
+  background: #061426;
+}
+
+.minaret::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #061426;
+}
+
+.minaret-1 {
+  left: -35px;
+}
+
+.minaret-2 {
+  left: 30px;
+}
+
+.minaret-3 {
+  right: 30px;
+}
+
+.minaret-4 {
+  right: -35px;
+}
+
+
+/* Galata Tower */
+
+.galata {
+  position: absolute;
+  right: 27%;
+  bottom: 0;
+  width: 55px;
+  height: 150px;
+  background: #061426;
+  border-radius: 30px 30px 0 0;
+}
+
+.galata-top {
+  position: absolute;
+  top: -18px;
+  left: -8px;
+  width: 71px;
+  height: 30px;
+  background: #061426;
+  border-radius: 50%;
+}
+
+
+/* Water */
+
+.water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 5;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(30, 180, 210, .12) 0px,
+      rgba(30, 180, 210, .12) 2px,
+      transparent 2px,
+      transparent 13px
+    ),
+    #04162d;
+}
+
+
+/* =========================
+   FAMILY MESSAGE
+========================= */
+
+.family-message {
+  text-align: center;
+  margin-top: 70px;
+  padding: 45px 25px;
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, .10);
+  border: 1px solid rgba(255, 255, 255, .18);
+
+  backdrop-filter: blur(15px);
+}
+
+.message-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.family-message h2 {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+.family-message p {
+  margin: 12px 0;
+  opacity: .7;
+}
+
+.family-message strong {
+  font-size: 18px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 25px;
+  font-size: 11px;
+  opacity: .5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+  main {
+    padding: 20px 12px 40px;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .hero h1 {
+    letter-spacing: 4px;
+  }
+
+  .route {
+    gap: 10px;
+  }
+
+  .route-line {
+    width: 80px;
+  }
+
+  .airport strong {
+    font-size: 28px;
+  }
+
+  .countdown-card {
+    padding: 25px 10px;
+  }
+
+  .countdown {
+    gap: 2px;
+  }
+
+  .time-box {
+    min-width: 65px;
+  }
+
+  .time-box span {
+    font-size: 32px;
+  }
+
+  .time-box small {
+    font-size: 7px;
+  }
+
+  .colon {
+    font-size: 25px;
+  }
+
+  .journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .istanbul-section {
+    min-height: 620px;
+  }
+
+  .istanbul-highlights {
+    gap: 15px;
+  }
+
+  .istanbul-highlights span {
+    font-size: 25px;
+  }
+
+  .skyline {
+    transform: scale(.8);
+    transform-origin: bottom center;
+  }
+
+  .galata {
+    right: 15%;
+  }
+
+  .lantern {
+    font-size: 28px;
+  }
+}
+
+
+@media (max-width: 450px) {
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .route-line {
+    width: 45px;
+  }
+
+  .airport strong {
+    font-size: 23px;
+  }
+
+  .airport span {
+    font-size: 9px;
+  }
+
+  .countdown {
+    gap: 0;
+  }
+
+  .time-box {
+    min-width: 55px;
+  }
+
+  .time-box span {
+    font-size: 27px;
+  }
+
+  .colon {
+    font-size: 20px;
+  }
+
+  .countdown-message {
+    font-size: 11px;
+  }
+
+  .stats {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 20px 5px;
+  }
+
+  .stat-card strong {
+    font-size: 20px;
+  }
+
+  .istanbul-highlights {
+    gap: 8px;
+  }
+
+  .istanbul-highlights small {
+    font-size: 8px;
+  }
+}
